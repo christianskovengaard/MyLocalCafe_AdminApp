@@ -11,21 +11,13 @@
     
     <body>
         <div id="home" data-role="page">
-                <div class="logo_home">
-                    <img src="img/logo_4.png"><br>
-                    <h1>MyLocal<span>Café</span></h1><h1>Administation</h1>
-                </div>
-                   <div id="Offline" class="Offline">
-                       <h2>Du er offline</h2>
-                       <h3>Du skal være online for at bruge appen</h3>
-                   </div>
-                   <div class="form">
-                       <form method="POST" action="login.php">
-                           <input type="text" value="" placeholder="Email">
-                           <input type="text" value="" placeholder="Kodeord">
-                           <input type="submit" value="Log ind" class="ui-btn">
-                       </form>
-                   </div>                  
+            <div class="logo_home">
+                <img src="img/logo_4.png"><br>
+                <h1>MyLocal<span>Café</span></h1><h1>P. Jones</h1>
+            </div>
+            <div class="menu_home">
+                <a href="messages.php">Beskeder</a>
+            </div>               
         </div>     
         <script src="js/jquery.js"></script>
         <script src="js/jquery.mobile-1.4.0.js"></script>
