@@ -14,12 +14,18 @@ if(isset($_GET['sFunction']))
             echo $sResult;
          break;
      
+     
          case "GetRestuarentInfo":
             require_once '../Controllers/RestuarentController.php';
             $oRestuarentController = new RestuarentController();
             $result = $oRestuarentController->GetRestuarentInfo();
             $sResult = json_encode($result);
             echo $sResult;
+        break;
+    
+        default:
+                $result = '{"sFunction":"'.$sFunction.'","result":"Error - Unknown function"}';
+                echo $result;
         break;
     }
 }
@@ -39,7 +45,13 @@ if(isset($_POST['sFunction'])) {
             $sResult = json_encode($result);
             echo $sResult;
         break;
+        
+        case "UploadImage":
+            require_once "../Controllers/ImageController.php";
+            $oImageController = new ImageController();
+            echo json_encode($oImageController->UploadImage());
 
+        break;
         
 
         default:

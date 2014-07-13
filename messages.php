@@ -32,7 +32,7 @@ if($oSecurityController->login_check() == true) { ?>
                         <input type="text" class="datepicker" name="dateto" placeholder="dato til" id="dMessageEnd">
                         <input type="file" id="captureimage" accept="image/*;capture=camera"> <!-- This input is hidden -->
                         <input type="button" onclick="CaptureImage();" value="Tag billede">
-                        <img id="image_preview">
+                        <img id="image_preview" src='' data-urlid='0'>
                         <input type="button" onclick="SaveMessage();" value="Send besked">
                     </form>
                 </div>

@@ -132,8 +132,9 @@ class MessageController
                     $rows = $sQuery->rowCount();
                     if ($rows == 1) {
                         $aResult = $sQuery->fetch(PDO::FETCH_ASSOC);
+                        
                         //TODO: Use image folder in MyLocalMenu project
-                        if (file_exists("../img_user/" . $aResult['sImageName'])) {
+                        if (file_exists("../../MyLocalMenu/img_user/" . $aResult['sImageName'])) {
                             $image = $aResult['sImageName'];
                         }
                     }
@@ -150,7 +151,7 @@ class MessageController
 
                         require_once "../Classes/PhpImageMagicianClass.php";
                         //TODO: Use image folder in MyLocalMenu project
-                        $oImageL = new imageLib("../img_user/" . $image);
+                        $oImageL = new imageLib("../../MyLocalMenu/img_user/" . $image);
 
                         $oMessageFinishImageAspect = (object)Array(
                             "max" => 1.42857142857,
@@ -167,7 +168,7 @@ class MessageController
                             $oImageL->resizeImage(700, 700 * $iNeturalAspect, 4);
                         }
                         //TODO: Use image folder in MyLocalMenu project
-                        $oImageL->saveImage("../imgmsg_sendt/" . $image);
+                        $oImageL->saveImage("../../MyLocalMenu/imgmsg_sendt/" . $image);
 
                         $sQuery->bindParam(":sMessageImage", $image);
                     } else {

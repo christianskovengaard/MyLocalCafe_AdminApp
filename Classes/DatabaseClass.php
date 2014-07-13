@@ -21,6 +21,9 @@ class Database
         //pass: tvgoseVtu7pmEE4bZ7rV
         //Privileges (SELECT,UPDATE,INSERT)
         
+        //Hide errors
+        error_reporting(0);
+        
     }
     
     public function SetDatabase($sDatabaseName,$sUsername,$sPassword,$sEncoding,$sHost)
