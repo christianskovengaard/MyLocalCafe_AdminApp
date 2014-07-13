@@ -19,7 +19,7 @@
                        <h2>Du er offline</h2>
                        <h3>Du skal være online for at bruge appen</h3>
                    </div>
-                   <div class="form">
+                   <div class="form" id="login">
                        <form method="POST" action="login.php">
                            <input type="text" value="" name="username" placeholder="Email">
                            <input type="text" value="" name="password" placeholder="Kodeord">
@@ -28,7 +28,7 @@
                    </div>                  
         </div>     
         <script src="js/jquery.js"></script>
-        <!--<script src="js/jquery.mobile-1.4.0.js"></script>-->
+        <script src="js/jquery.mobile-1.4.0.js"></script>
         <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script> <!-- migrate plugin for old jQuery-->
         <script type="text/javascript" src="js/general.js"></script>
     </body>

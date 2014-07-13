@@ -31,6 +31,15 @@ class RestuarentController
     
     public function GetRestuarentInfo()
     {
+        
+        
+        //Allow all, NOT SAFE
+        //header('Access-Control-Allow-Origin: *');  
+        
+        // Only allow trusted, MUCH more safe
+        header('Access-Control-Allow-Origin: mylocalcafe.dk');
+        header('Access-Control-Allow-Origin: www.mylocalcafe.dk');
+        
         $aRestuarentInfo = array(
                 'sFunction' => 'GetRestuarentInfo',
                 'result' => 'false'

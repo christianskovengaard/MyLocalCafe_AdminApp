@@ -2,7 +2,10 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,900,100,200,300,500,600,700,800);
 
 
-.Offline {
+//Smooth scrolling for iOS 
+
+
+#Offline {
     display: none;
     position: absolute;
     background: red;
@@ -92,25 +95,16 @@
     margin: 0 auto;
     padding: 10px 0;
 }
-#home input {
+#home input[type=text],input[type=button] {
     position: relative;
     display: inline-table;
     border: 0;
     width: 65%;
     font-size: 23px;
     outline: none;
-    margin: 0 0 0 10px; 
     vertical-align: middle;
 }
 
-
-#home .form img {
-    vertical-align: middle;
-    display: inline-table;
-    float: right;
-    margin: 0 10px 0 10px;
-    width: 28px;
-}
 
 #home .form .clear {
     margin: 0;
@@ -176,4 +170,15 @@
   100% { 
     width: 5%;
   }
+}
+
+#image_preview {
+    height: 500px;
+    width: 300px;
+    display: none;
+}
+
+
+#captureimage {
+    display: none;
 }

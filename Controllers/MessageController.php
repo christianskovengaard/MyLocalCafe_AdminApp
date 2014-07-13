@@ -2,11 +2,8 @@
 
 class MessageController 
 {
-    private $conPDO;
-    
+    private $conPDO;   
     private $oSecurityController;
-    private $oStampcard;
-
 
     public function __construct() {
         
@@ -17,14 +14,20 @@ class MessageController
         require_once 'SecurityController.php';
         $this->oSecurityController = new SecurityController();
         
-        require_once 'StampcardController.php';
-        $this->oStampcard = new StampcardController();
     }
     
     
     //GetMessages
     public function GetMessages()
     {
+        
+        //Allow all, NOT SAFE
+        //header('Access-Control-Allow-Origin: *');  
+        
+        // Only allow trusted, MUCH more safe
+        header('Access-Control-Allow-Origin: mylocalcafe.dk');
+        header('Access-Control-Allow-Origin: www.mylocalcafe.dk');
+        
          $oMessages = array(
                 'sFunction' => 'GetMessages',
                 'result' => false,
@@ -77,6 +80,15 @@ class MessageController
     //SaveMessage
     public function SaveMessage()
     {
+        
+        //Allow all, NOT SAFE
+        //header('Access-Control-Allow-Origin: *');  
+        
+        // Only allow trusted, MUCH more safe
+        header('Access-Control-Allow-Origin: mylocalcafe.dk');
+        header('Access-Control-Allow-Origin: www.mylocalcafe.dk');
+        
+        
         $oMessage = array(
                 'sFunction' => 'SaveMessage',
                 'result' => false
@@ -92,9 +104,9 @@ class MessageController
             if($this->oSecurityController->login_check() == true)
             {
         
-                if(isset($_GET['sJSON'])) {
+                if(isset($_POST['sJSON'])) {
 
-                    $aJSONMessage = json_decode($_GET['sJSON']);
+                    $aJSONMessage = json_decode($_POST['sJSON']);
 
                     //Check if user logged in and get the iRestuarentId
                     $sQuery = $this->conPDO->prepare("SELECT iRestuarentInfoId FROM restuarentinfo                                                     
@@ -108,7 +120,7 @@ class MessageController
                     $aResult = $sQuery->fetch(PDO::FETCH_ASSOC);
                     $iRestuarentInfoId = $aResult['iRestuarentInfoId'];
                                     
-                    //Reverse date to fit datebase format
+                    //Reverse date to fit database format
                     $dMessageStart = date('Y-m-d', strtotime(urldecode($aJSONMessage->dMessageStart)));
                     $dMessageEnd = date('Y-m-d', strtotime( urldecode($aJSONMessage->dMessageEnd)));
 
@@ -120,6 +132,7 @@ class MessageController
                     $rows = $sQuery->rowCount();
                     if ($rows == 1) {
                         $aResult = $sQuery->fetch(PDO::FETCH_ASSOC);
+                        //TODO: Use image folder in MyLocalMenu project
                         if (file_exists("../img_user/" . $aResult['sImageName'])) {
                             $image = $aResult['sImageName'];
                         }
@@ -136,6 +149,7 @@ class MessageController
                     if ($image !== false) {
 
                         require_once "../Classes/PhpImageMagicianClass.php";
+                        //TODO: Use image folder in MyLocalMenu project
                         $oImageL = new imageLib("../img_user/" . $image);
 
                         $oMessageFinishImageAspect = (object)Array(
@@ -152,6 +166,7 @@ class MessageController
                         } else {
                             $oImageL->resizeImage(700, 700 * $iNeturalAspect, 4);
                         }
+                        //TODO: Use image folder in MyLocalMenu project
                         $oImageL->saveImage("../imgmsg_sendt/" . $image);
 
                         $sQuery->bindParam(":sMessageImage", $image);

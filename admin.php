@@ -22,7 +22,7 @@ if($oSecurityController->login_check() == true) { ?>
                 <h1>MyLocal<span>Café</span></h1><h1 id="cafename"></h1>
             </div>
             <div class="menu_home">
-                <a href="messages">Beskeder</a>
+                <a href="" onclick="changePage('messages')">Beskeder</a>
             </div>
             <div class="logout">
                 <form method="POST" action="logout.php">
@@ -31,13 +31,17 @@ if($oSecurityController->login_check() == true) { ?>
             </div>
         </div>     
         <script src="js/jquery.js"></script>
-        <!--<script src="js/jquery.mobile-1.4.0.js"></script>-->
+        <script src="js/jquery.mobile-1.4.0.js"></script>
         <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script> <!-- migrate plugin for old jQuery-->
         <script type="text/javascript" src="js/general.js"></script>
         <script type="text/javascript">
         $(document).ready(function() {
             GetRestuarentInfo();
-        });
+        });       
+        function changePage(page){
+            $(location).attr('href',page);
+        }
+        
         </script>
     </body>
 </html>
