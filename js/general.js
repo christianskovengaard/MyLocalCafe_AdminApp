@@ -167,14 +167,14 @@ function GetMessages() {
                   if (value.sMessageImage == "") {
                       $('#currentMessages').append('<div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
                   } else {
-                      $('#currentMessages').append('<img src="imgmsg_sendt/' + value.sMessageImage + '"><div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
+                      $('#currentMessages').append('<img src="../../MyLocalMenu/imgmsg_sendt/' + value.sMessageImage + '"><div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
                   }
               }
               else {
                   if (value.sMessageImage == "") {
                       $('#oldMessages').append('<div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
                   } else {
-                      $('#oldMessages').append('<img src="imgmsg_sendt/' + value.sMessageImage + '"><div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
+                      $('#oldMessages').append('<img src="../../MyLocalMenu/imgmsg_sendt/' + value.sMessageImage + '"><div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
                   }
               }
           });
