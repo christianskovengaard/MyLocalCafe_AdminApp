@@ -113,7 +113,6 @@ function SaveMessageWithImage() {
     aData['sMessageHeadnline'] = $('#sMessageHeadline').val(); 
     aData['sMessageBodyText'] = $('#sMessengerTextarea').val();
     //Get the image Id
-    alert('$(#image_preview).attr(data-urlid)'+ $("#image_preview").attr('data-urlid'));
     aData['iMessageImageId'] = $("#image_preview").attr('data-urlid');
 
     //Workaround with encoding issue in IE8 and JSON.stringify
