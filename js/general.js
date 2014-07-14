@@ -87,7 +87,7 @@ function SaveMessage() {
            //FjernPrewievImage();
            GetMessages();
            
-           //TODO: Remove ui-state-hover on SaveMessage btn
+           //TODO: Remove ui-state-hover on SaveMessage btn AND THE tag billede btn
        });
     }    
        
@@ -133,7 +133,19 @@ function SaveMessageWithImage() {
         $('#sMessageHeadline').val(''); 
         $('#sMessengerTextarea').val('');
         $('#dMessageEnd').val('');
-        //FjernPrewievImage();
+        //Clear image
+        $('#image_preview').hide();
+        $('#image_preview').attr('data-urlid','');
+        $('#image_preview').attr('src','');
+        
+        
+        $(".MessageEmpty").remove();
+        $(".newmessage").after("<div class='MessageEmpty'>Beskeden er sendt!</div>");
+        $(".MessageEmpty").hide().slideDown(200);
+        $(".MessageEmpty").delay('1000').slideUp(200, function(){
+            $(this).remove();
+        });
+        
         GetMessages();
 
         //TODO: Remove ui-state-hover on SaveMessage btn
@@ -162,19 +174,22 @@ function GetMessages() {
               var h = date.substring(11,13);
               var m = date.substring(14,16);
               var date = dd+"-"+mm+"-"+yy+" "+h+":"+m;
-
+              
+              var imgmsg_sendt_folder_location_ONLINE = '../';
+              var imgmsg_sendt_folder_location_OFFLINE = '../../MyLocalMenu/';
+              
               if( key === 0){
                   if (value.sMessageImage == "") {
                       $('#currentMessages').append('<div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
                   } else {
-                      $('#currentMessages').append('<img src="../../MyLocalMenu/imgmsg_sendt/' + value.sMessageImage + '"><div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
+                      $('#currentMessages').append('<img class="image_message" src="'+imgmsg_sendt_folder_location_ONLINE+'imgmsg_sendt/' + value.sMessageImage + '"><div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
                   }
               }
               else {
                   if (value.sMessageImage == "") {
                       $('#oldMessages').append('<div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
                   } else {
-                      $('#oldMessages').append('<img src="../../MyLocalMenu/imgmsg_sendt/' + value.sMessageImage + '"><div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
+                      $('#oldMessages').append('<img class="image_message" src="'+imgmsg_sendt_folder_location_ONLINE+'imgmsg_sendt/' + value.sMessageImage + '"><div><h1>' + value.sMessageHeadline + '</h1><h3>' + date + '</h3><h2>' + value.sMessageBodyText + '</h2></div>');
                   }
               }
           });
@@ -184,6 +199,12 @@ function GetMessages() {
 }
 
  function upload(files, done, dataialt, datatilbage, progressFunction) {
+     
+     console.log('uploader billeder...');
+     
+     $(".newmessage").after("<div class='MessageEmpty'>Sender besked...</div>");
+     $(".MessageEmpty").hide().slideDown(200);
+     
      var formobject = new FormData();
      formobject.append('file[]', files[0]);
      formobject.append('sFunction', 'UploadImage');
@@ -230,6 +251,7 @@ function GetMessages() {
                  // dette bliver kort hvis billede bliver uploadet med succes
                  //addImageOnBibList(result);
                  //Set ID on image_preview
+                 console.log('upload done!...');
                  $("#image_preview").attr('data-urlid',result.images.id);
                  SaveMessageWithImage();
 

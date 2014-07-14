@@ -133,8 +133,11 @@ class MessageController
                     if ($rows == 1) {
                         $aResult = $sQuery->fetch(PDO::FETCH_ASSOC);
                         
-                        //TODO: Use image folder in MyLocalMenu project
-                        if (file_exists("../../MyLocalMenu/img_user/" . $aResult['sImageName'])) {
+                        //Change this folder location for the online version OR offline version
+                        $imagefolder_location_ONLINE = '../../';
+                        $imagefolder_location_OFFLINE = '../../MyLocalMenu/';
+                        
+                        if (file_exists($imagefolder_location_ONLINE."img_user/" . $aResult['sImageName'])) {
                             $image = $aResult['sImageName'];
                         }
                     }
@@ -150,8 +153,9 @@ class MessageController
                     if ($image !== false) {
 
                         require_once "../Classes/PhpImageMagicianClass.php";
-                        //TODO: Use image folder in MyLocalMenu project
-                        $oImageL = new imageLib("../../MyLocalMenu/img_user/" . $image);
+                        
+                        //Use image folder in MyLocalMenu project
+                        $oImageL = new imageLib($imagefolder_location_ONLINE."img_user/" . $image);
 
                         $oMessageFinishImageAspect = (object)Array(
                             "max" => 1.42857142857,
@@ -167,8 +171,9 @@ class MessageController
                         } else {
                             $oImageL->resizeImage(700, 700 * $iNeturalAspect, 4);
                         }
-                        //TODO: Use image folder in MyLocalMenu project
-                        $oImageL->saveImage("../../MyLocalMenu/imgmsg_sendt/" . $image);
+                        
+                        //Use image folder in MyLocalMenu project
+                        $oImageL->saveImage($imagefolder_location_ONLINE."imgmsg_sendt/" . $image);
 
                         $sQuery->bindParam(":sMessageImage", $image);
                     } else {

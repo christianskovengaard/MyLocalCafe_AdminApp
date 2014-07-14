@@ -119,11 +119,16 @@ class ImageController
                         $oMessage['toSmall']=false;
                         
                         //Get folder from MyLocalMenu project
-                        //TODO: Change this folder location for the online version
-                        $id = intval(file_get_contents("../../MyLocalMenu/app_data/image_upload_id.txt"));
+                        
+                        //Change this folder location for the online version OR offline version
+                        $imagefolder_location_ONLINE = '../../';
+                        $imagefolder_location_OFFLINE = '../../MyLocalMenu/';
+                        
+                        $id = intval(file_get_contents($imagefolder_location_ONLINE."app_data/image_upload_id.txt"));
                         $filename = $this->GetResturantId() . date('-Y-m-d-') . time() . '.' . end(explode(".", $fil['name']));
-                        //TODO: Change this folder location for the online version
-                        $location = '../../MyLocalMenu/img_user/' . $filename;
+                        
+                        //Change this folder location for the online version OR offline version
+                        $location = $imagefolder_location_ONLINE.'img_user/' . $filename;
 
                         if ($fil['error'] == 0 && move_uploaded_file($fil['tmp_name'], $location)) {
 
@@ -144,8 +149,8 @@ class ImageController
                         }
 
                         $id++;
-                        //TODO: Change this folder location for the online version
-                        file_put_contents("../../MyLocalMenu/app_data/image_upload_id.txt", $id);
+                        //Change this folder location for the online version OR offline version
+                        file_put_contents($imagefolder_location_ONLINE."app_data/image_upload_id.txt", $id);
 
                     }
 
