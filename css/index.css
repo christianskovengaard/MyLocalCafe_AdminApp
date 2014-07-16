@@ -207,6 +207,7 @@
 .logout{
     float: right;
     margin-bottom: 10px;
+    padding-right: 5px;
 }
 
 #logoutBtn {
@@ -224,4 +225,9 @@
 
 #a_link {
     color: #0066cc;
+}
+
+.menuBtn {
+    padding-top: 3px;
+    padding-left: 5px;
 }

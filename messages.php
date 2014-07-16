@@ -19,7 +19,7 @@ if($oSecurityController->login_check() == true) { ?>
     <body>
         <div id="home" data-role="page">
             <div class="headermenu">
-                <div>
+                <div class="menuBtn">
                     <input type='button' id='menuBtn' onclick="changePage('admin')" value='Menu'/>
                 </div>
                 <form class='logout' method="POST" action="logout.php">
