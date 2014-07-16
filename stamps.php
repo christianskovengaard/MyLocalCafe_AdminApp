@@ -18,18 +18,21 @@ if($oSecurityController->login_check() == true) { ?>
     
     <body>
         <div id="home" data-role="page">
+            <div class="headermenu">
+                <div>
+                    <input type='button' id='menuBtn' onclick="changePage('admin')" value='Menu'/>
+                </div>
+                <form class='logout' method="POST" action="logout.php">
+                    <input id='logoutBtn' type="button" value="Log ud" onclick="submitForm(this);">
+                </form>
+            </div>
             <div class="logo_home">
-                <img src="img/logo_4.png"><br>
+                <!--<img src="img/logo_4.png"><br>-->
                 <h1>MyLocal<span>Café</span></h1><h1 id="cafename"></h1>
             </div>
             <div class="menu_home">
                 <h3>Stempelkort</h3>
                 
-            </div>
-            <div class="logout">
-                <form method="POST" action="logout.php">
-                    <input type="submit" value="Log ud">
-                </form>
             </div>
         </div>     
         <script src="js/jquery.js"></script>

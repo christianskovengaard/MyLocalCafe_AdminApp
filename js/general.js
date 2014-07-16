@@ -6,24 +6,32 @@
 //Online
 var sAPIURL = 'http://mylocalcafe.dk/API/api.php';
 
-$(document).ready(function() {
-    CheckInternetConnection();
-    
-});
+//$(document).ready(function() {
+//    CheckInternetConnection();
+//    
+//});
+//
+//function CheckInternetConnection() {
+//    var status = navigator.onLine;
+//    if( status === true ){
+//    //if( window.jQuery ){
+//        //App is online
+//        $('#Offline').hide();
+//    }
+//    else {
+//        $('#Offline').show();
+//        $('#login').hide();
+//    }
+//}   
 
-function CheckInternetConnection() {
-    var status = navigator.onLine;
-    if( status === true ){
-    //if( window.jQuery ){
-        //App is online
-        $('#Offline').hide();
-    }
-    else {
-        $('#Offline').show();
-        $('#login').hide();
-    }
-}   
 
+function submitForm(form) {
+    $(form).submit();
+}
+
+function changePage(page){
+    $(location).attr('href',page);
+}
 
 function GetRestuarentInfo() {
     

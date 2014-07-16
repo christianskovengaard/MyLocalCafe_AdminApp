@@ -2,22 +2,6 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,900,100,200,300,500,600,700,800);
 
 
-//Smooth scrolling for iOS 
-
-
-#Offline {
-    display: none;
-    position: absolute;
-    background: red;
-    width: 100%;
-    top: 270px;
-    bottom: 0px;
-    z-index: 100;
-    background: #ddd;
-    text-align: center;
-}
-
-
 #home{ 
     background: #ddd url("../img/bg.jpg") 0 0 no-repeat;
     background-size: 100%;
@@ -29,7 +13,7 @@
 
 .logo_home {
     width: 100%;
-    padding: 30px 0 20px 0;
+    padding: 64px 0 20px 0;
     text-align: center;
     -moz-transition: 1s;
     -webkit-transition: 1s;
@@ -99,7 +83,7 @@
     position: relative;
     display: inline-table;
     border: 0;
-    width: 65%;
+    width: 100%;
     font-size: 23px;
     outline: none;
     vertical-align: middle;
@@ -187,4 +171,49 @@
     height: 250px;
     width: 300px;
     
+}
+
+.oldMessenge {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.oldMessenge img {
+    width: 100%;
+    position: relative;
+    bottom: -5px;
+}
+.oldMessenge div {
+    position: relative;
+    background: #F4A720;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+.oldMessenge div h1 {
+    font-size: 18px; line-height: 18px;
+    margin-top: 24px;
+}
+.oldMessenge div h2 {
+    font-size: 14px; line-height: 14px;
+}
+.oldMessenge div h3 {
+    position: absolute;
+    top: 5px; right: 10px;
+    font-size: 12px;
+    color: #a56800;
+}
+
+.logout{
+    float: right;
+    margin-bottom: 10px;
+}
+
+#logoutBtn {
+    width: 100%;
+}
+
+#menuBtn {
+    width: 100px;
+    float: left;
 }

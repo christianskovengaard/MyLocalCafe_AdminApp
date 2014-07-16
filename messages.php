@@ -18,10 +18,19 @@ if($oSecurityController->login_check() == true) { ?>
     
     <body>
         <div id="home" data-role="page">
+            <div class="headermenu">
+                <div>
+                    <input type='button' id='menuBtn' onclick="changePage('admin')" value='Menu'/>
+                </div>
+                <form class='logout' method="POST" action="logout.php">
+                    <input id='logoutBtn' type="button" value="Log ud" onclick="submitForm(this);">
+                </form>
+            </div>
             <div class="logo_home">
-                <img src="img/logo_4.png"><br>
+                <!--<img src="img/logo_4.png"><br>-->
                 <h1>MyLocal<span>Café</span></h1><h1 id="cafename"></h1>
             </div>
+            
             <div class="menu_home">
                 <h3>Ny besked</h3>
                 <div>
@@ -40,12 +49,7 @@ if($oSecurityController->login_check() == true) { ?>
                 <div id="currentMessages" class="oldMessenge"></div>
                 <h2>Gamle beskeder:</h2>
                 <div id="oldMessages" class="oldMessenge"></div>
-            </div>
-            <div class="logout">
-                <form method="POST" action="logout.php">
-                    <input type="submit" value="Log ud">
-                </form>
-            </div>
+            </div>           
         </div>     
         <script src="js/jquery.js"></script>
         <script src="js/jquery.mobile-1.4.0.js"></script>
@@ -60,6 +64,13 @@ if($oSecurityController->login_check() == true) { ?>
             $("#dMessageStart").val($.datepicker.formatDate('dd-mm-yy', new Date()));
             GetMessages();           
             $('body').css('-webkit-overflow-scrolling', 'touch');
+            
+            //Fix for hiding the native keyboard on phone browser
+            $(".datepicker").click(function() {
+                $(".datepicker").blur(); // UNFOCUS THE INPUT                          
+            });
+            //Fix for hiding jQueryMobile div on catureimage file input
+            $('#captureimage').parent('div').css('display','none');
         });
         </script>
     </body>
