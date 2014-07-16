@@ -20,7 +20,7 @@
                        <form method="POST" action="login.php">
                            <input type="text" value="" name="username" placeholder="Email">
                            <input type="text" value="" name="password" placeholder="Kodeord">
-                           <input type="button" value="Log ind" onclick="submitForm(this)">
+                           <input type="button" value="Log ind" id='loginButton' onclick="submitForm(this)">
                        </form>
                    </div>                  
         </div>     
@@ -29,5 +29,17 @@
         <script type="text/javascript" src="js/jquery-ui.js"></script>
         <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script> <!-- migrate plugin for old jQuery-->
         <script type="text/javascript" src="js/general.js"></script>
+        <script>
+           var url = window.location.search.substring(7);
+           if (url === "false") {
+               $("#loginButton").before("<div class='WrongPassword'><p>Email eller kodeord er forkert</p></div>");
+           }
+           if(url === "nocafe"){
+               $("#loginButton").before("<div class='WrongPassword'><p>Du har endnu ikke oprettet en café</p><p>Besøg <a id='a_link' data-ajax='false' href='http://www.mylocalcafe.dk/login-page#LogInd'>mylocalcafe.dk</a> og opret din café</p></div>");             
+           }
+           if(url === "Account_locked"){
+               $("#loginButton").before("<div class='WrongPassword'><p>Kontoen er blevet låst i 2 timer pga. for mange log ind forsøg</p></div>");               
+          }
+        </script>
     </body>
 </html>

@@ -217,3 +217,11 @@
     width: 100px;
     float: left;
 }
+
+.WrongPassword {
+    color: #cc3300;
+}
+
+#a_link {
+    color: #0066cc;
+}

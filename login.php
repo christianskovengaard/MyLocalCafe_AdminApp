@@ -21,21 +21,21 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
        //header("location: index?login=Account_locked#LogInd");
        ?>       
         <script>
-            $(location).attr('href','index?login=Account_locked#LogInd');
+            $(location).attr('href','index?login=Account_locked');
         </script>            
         <?php 
    }else if($loggedIn['result'] == 'false'){
        //header("location: index?login=false#LogInd");
        ?>       
         <script>
-            $(location).attr('href','index?login=false#LogInd');
+            $(location).attr('href','index?login=false');
         </script>            
         <?php 
    }else if($loggedIn['result'] == 'nocafe'){
        //header("location: index?login=nocafe#LogInd");
        ?>       
         <script>
-            $(location).attr('href','index?login=nocafe#LogInd');
+            $(location).attr('href','index?login=nocafe');
         </script>            
         <?php 
    }
