@@ -32,7 +32,28 @@ if($oSecurityController->login_check() == true) { ?>
             </div>
             <div class="menu_home">
                 <h3>Stempelkort</h3>
-                
+                <p>Sådan ser dit stemplkort ud:</p><br>                   
+                    <div class='StampEX' id='StampEX'>
+                        <h4></h4>
+                    </div>
+                    <div class='StampWrapper'>
+                        <form class="form">
+                        <p>Antal stempler på stempelkortet:</p>
+                        <input type='text' placeholder="Antal stempler" id="iMaxStamps" maxlength="2">
+                        <input type='button' onclick="SaveStampcard();" value='Gem'>
+                        <input type="text" placeholder="Stempelkort tekst" id="sStampcardText" >
+                        <div id="sStampcardTextExample">Stempelkort tekst...</div>
+                        <input type='button' onclick="UpdateStampcardText();" value='Opdater stempelkort tekst'>
+                        <h3>Stempelkort kode: </h3><p id="RedemeCode"></p>
+                        <div class='redemecodes'>
+                            <input type="text" class='redemecode' id="RedemeCode1" maxlength="1">
+                            <input type="text" class='redemecode' id="RedemeCode2" maxlength="1">
+                            <input type="text" class='redemecode' id="RedemeCode3" maxlength="1">
+                            <input type="text" class='redemecode' id="RedemeCode4" maxlength="1">
+                        </div>
+                        <input type='button' onclick="UpdateRedemeCode();" value='Sæt stempelkort kode'>
+                        </form>
+                    </div>
             </div>
         </div>     
         <script src="js/jquery.js"></script>
@@ -44,7 +65,10 @@ if($oSecurityController->login_check() == true) { ?>
         <script type="text/javascript">
         $(document).ready(function() {
             GetRestuarentInfo();                    
-            $('body').css('-webkit-overflow-scrolling', 'touch');
+            $('body').css('-webkit-overflow-scrolling','touch');
+            $('.redemecode').parent('div').css({"width":"10%","float":"left"});
+            $('.redemecode').parent('div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4)').css({"margin-left":"1%"});
+            $('.redemecode').parent('div').first().css({"margin-left":"27%"});
         });
         </script>
     </body>

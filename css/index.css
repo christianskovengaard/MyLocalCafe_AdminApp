@@ -231,3 +231,11 @@
     padding-top: 3px;
     padding-left: 5px;
 }
+
+.redemecodes{
+    width: 100%;
+}
+
+.redemecode {
+    text-align: center !important;
+}
