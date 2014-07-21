@@ -43,7 +43,7 @@ if($oSecurityController->login_check() == true) { ?>
                         <input type='button' onclick="SaveStampcard();" value='Gem'>
                         <input type="text" placeholder="Stempelkort tekst" id="sStampcardText" >
                         <div id="sStampcardTextExample">Stempelkort tekst...</div>
-                        <input type='button' onclick="UpdateStampcardText();" value='Opdater stempelkort tekst'>
+                        <input type='button' onclick="UpdateStampcardText();" value='Opdater tekst'>
                         <h3>Stempelkort kode: </h3><p id="RedemeCode"></p>
                         <div class='redemecodes'>
                             <input type="text" class='redemecode' id="RedemeCode1" maxlength="1">
@@ -66,9 +66,9 @@ if($oSecurityController->login_check() == true) { ?>
         $(document).ready(function() {
             GetRestuarentInfo();                    
             $('body').css('-webkit-overflow-scrolling','touch');
-            $('.redemecode').parent('div').css({"width":"10%","float":"left"});
-            $('.redemecode').parent('div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4)').css({"margin-left":"1%"});
-            $('.redemecode').parent('div').first().css({"margin-left":"27%"});
+            $('.redemecode').parent('div').css({"width":"12%","float":"left"});
+            $('.redemecode').parent('div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4)').css({"margin-left":"1.2%"});
+            $('.redemecode').parent('div').first().css({"margin-left":"24%"});
         });
         </script>
     </body>
