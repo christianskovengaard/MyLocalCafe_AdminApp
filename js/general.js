@@ -102,9 +102,9 @@ function SaveMessage() {
     }
     else {
         //alert('udfyld felter');
-        $(".newmessage").after("<div class='MessageEmpty'>Du skal skrive en besked og en slut dato</div>");
+        $(".newmessage").after("<div class='MessageEmpty'>Du skal skrive en besked og vælge en slut dato</div>");
         $(".MessageEmpty").hide().slideDown(200);
-        $(".MessageEmpty").delay('1000').slideUp(200, function(){
+        $(".MessageEmpty").delay('2500').slideUp(500, function(){
             $(this).remove();
         });
     }
@@ -210,8 +210,8 @@ function GetMessages() {
      
      console.log('uploader billeder...');
      
-     $(".newmessage").after("<div class='MessageEmpty'>Sender besked...</div>");
-     $(".MessageEmpty").hide().slideDown(200);
+     $(".newmessage").after("<div class='MessageSending'>Sender besked...</div>");
+     $(".MessageSending").hide().slideDown(200);
      
      var formobject = new FormData();
      formobject.append('file[]', files[0]);

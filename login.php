@@ -1,7 +1,3 @@
-<html>
-<head></head>
-<body>
-    <script src="js/jquery.js"></script>
 <?php
 
 if(isset($_POST['username']) && isset($_POST['password'])) {
@@ -10,46 +6,22 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     $oUserController = new UserController();
     $loggedIn = $oUserController->LogInUser($_POST['username'], $_POST['password']);
    if($loggedIn['result'] == 'true'){
-        //header('location: admin'); 
-        //exit;
-        ?>       
-        <script>
-            $(location).attr('href','admin');
-        </script>            
-        <?php       
+        header('location: admin'); 
+        exit;    
    }else if($loggedIn['result'] == 'Account locked'){
-       //header("location: index?login=Account_locked#LogInd");
-       ?>       
-        <script>
-            $(location).attr('href','index?login=Account_locked');
-        </script>            
-        <?php 
+       header("location: index?login=Account_locked#LogInd");
+       exit;
    }else if($loggedIn['result'] == 'false'){
-       //header("location: index?login=false#LogInd");
-       ?>       
-        <script>
-            $(location).attr('href','index?login=false');
-        </script>            
-        <?php 
+       header("location: index?login=false#LogInd");
+       exit;
    }else if($loggedIn['result'] == 'nocafe'){
-       //header("location: index?login=nocafe#LogInd");
-       ?>       
-        <script>
-            $(location).attr('href','index?login=nocafe');
-        </script>            
-        <?php 
+       header("location: index?login=nocafe#LogInd");
+       exit;
    }
    
 }
 else {
-    //header("location: index?login=false");
-    //exit;
-    ?>       
-    <script>
-        $(location).attr('href','index?login=false');
-    </script>            
-    <?php     
+    header("location: index?login=false");
+    exit;    
 }
 ?>
-</body>
-<html>

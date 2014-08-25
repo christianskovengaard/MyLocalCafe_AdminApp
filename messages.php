@@ -9,31 +9,28 @@ if($oSecurityController->login_check() == true) { ?>
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.0.min.css"/>    
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> 
         <link rel="stylesheet" type='text/css' href="css/jquery-ui-1.8.16.custom.css"/>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>MyLocalCafe - Admin app</title>
     </head>
     
     <body>
-        <div id="home" data-role="page">
+        <div id="home">
             <div class="headermenu">
                 <div class="menuBtn">
                     <input type='button' id='menuBtn' onclick="changePage('admin')" value='Menu'/>
                 </div>
                 <form class='logout' method="POST" action="logout.php">
-                    <input id='logoutBtn' type="button" value="Log ud" onclick="submitForm(this);">
+                    <input id='logoutBtn' type="submit" value="Log ud"">
                 </form>
             </div>
             <div class="logo_home">
-                <!--<img src="img/logo_4.png"><br>-->
                 <h1>MyLocal<span>Café</span></h1><h1 id="cafename"></h1>
             </div>
             
             <div class="menu_home">
-                <h3>Ny besked</h3>
-                <div>
+                    <h2>Ny besked</h2>
                     <form class="newmessage form">
                         <input type="text" placeholder="Overskrift" id="sMessageHeadline">
                         <input type="text" placeholder="Besked" id="sMessengerTextarea">
@@ -44,10 +41,13 @@ if($oSecurityController->login_check() == true) { ?>
                         <img id="image_preview" src='' data-urlid='0'>
                         <input type="button" onclick="SaveMessage();" value="Send besked">
                     </form>
+                <div class="logo_home">
+                    <h2>Sidst sendte besked:</h2>
                 </div>
-                <h2>Sidst sendte besked:</h2>
                 <div id="currentMessages" class="oldMessenge"></div>
-                <h2>Gamle beskeder:</h2>
+                <div class="logo_home">
+                    <h2>Gamle beskeder:</h2>
+                </div>
                 <div id="oldMessages" class="oldMessenge"></div>
             </div>           
         </div>     
