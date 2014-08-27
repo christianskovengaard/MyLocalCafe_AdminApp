@@ -31,9 +31,9 @@ if($oSecurityController->login_check() == true) { ?>
                 <div class="link_div"> 
                     <a class="link" href="messages.php">Beskeder</a>
                 </div>
-                <!--<div class="link_div">
+                <div class="link_div">
                     <a class="link" href="stamps.php">Stempelkort</a>
-                </div>-->
+                </div>
             </div>
         </div>     
         <script src="js/jquery.js"></script>

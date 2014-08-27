@@ -6,6 +6,7 @@ body {
     -webkit-overflow-scrolling: touch;
     padding: 0px;
     margin: 0px;
+    
 }
 
 
@@ -40,8 +41,22 @@ body {
     text-align: center;
 }
 
-.menu_home h2{
+.menu_home h2,p,h3{
     color: white;
+}
+
+.redemecode{
+   width: 4% !important;
+   margin-right: 1px;
+}
+
+.redemecodes{
+    width: 100%;
+}
+
+#sStampcardTextExample{
+    color: white;
+    font-family:'Raleway', sans-serif;
 }
 
 .menuBtn{
@@ -248,10 +263,7 @@ a,h1,h2,h3,h4,h5,h6,p,li{
 #home .form {
     
     width: 90%;
-    margin: 10px auto 0 auto;
-    padding: 10px 14% 10px 6%;
-    
-    
+    margin: 10px auto 0 auto;   
 }
 
 input:focus {

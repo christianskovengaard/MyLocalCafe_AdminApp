@@ -27,11 +27,10 @@ if($oSecurityController->login_check() == true) { ?>
                 </form>
             </div>
             <div class="logo_home">
-                <!--<img src="img/logo_4.png"><br>-->
                 <h1>MyLocal<span>Café</span></h1><h1 id="cafename"></h1>
             </div>
             <div class="menu_home">
-                <h3>Stempelkort</h3>
+                <h2>Stempelkort</h2>
                 <p>Sådan ser dit stemplkort ud:</p><br>                   
                     <div class='StampEX' id='StampEX'>
                         <h4></h4>
@@ -65,10 +64,10 @@ if($oSecurityController->login_check() == true) { ?>
         <script type="text/javascript">
         $(document).ready(function() {
             GetRestuarentInfo();                    
-            $('body').css('-webkit-overflow-scrolling','touch');
-            $('.redemecode').parent('div').css({"width":"12%","float":"left"});
-            $('.redemecode').parent('div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4)').css({"margin-left":"1.2%"});
-            $('.redemecode').parent('div').first().css({"margin-left":"24%"});
+
+            //$('.redemecode').parent('div').css({"width":"12%","float":"left"});
+            //$('.redemecode').parent('div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4)').css({"margin-left":"1.2%"});
+            //$('.redemecode').parent('div').first().css({"margin-left":"24%"});
         });
         </script>
     </body>
