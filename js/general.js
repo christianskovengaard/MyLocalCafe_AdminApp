@@ -49,6 +49,48 @@ function GetRestuarentInfo() {
        });
 }
 
+function SaveStampcard() {
+    
+   var aData = {};
+   
+   aData['iStampcardMaxStamps'] = $('#iMaxStamps').val();
+       
+   for (var i in aData) {
+       aData[i] = encodeURIComponent(aData[i]);
+   }
+
+   var sJSON = JSON.stringify(aData);
+   
+   //Make ajax call
+   $.ajax({
+        type: "GET",
+        url: "API/api.php",
+        dataType: "json",
+        data: {sFunction:"SaveStampcard",sJSONStampcard:sJSON}
+       }).done(function(result) {
+           if(result.result === 'true'){
+               alert('Hurra');
+           }else{
+               alert('Fejl!');
+           }
+       });
+}
+
+function UpdateStampcardText() {
+    
+    var sStampcardtext = $('#sStampcardText').val(); 
+    $.ajax({
+        type: "GET",
+        url: "API/api.php",
+        dataType: "json",
+        data: {sFunction:"UpdateStampcardText",sStampcardtext:sStampcardtext}
+       }).done(function(result) {
+           if(result.result === 'true') {
+                alert('Stempelkort tekst er blevet opdateret');
+                //Set the new text frontend
+           }
+       }); 
+}
 
 function SaveMessage() {
       
@@ -110,6 +152,40 @@ function SaveMessage() {
     }
     
     
+}
+
+function GetStampcard() {
+   
+    $.ajax({
+        type: "GET",
+        url: "API/api.php",
+        dataType: "json",
+        data: {sFunction:"GetStampcard"}
+       }).done(function(result) {
+           $('#iMaxStamps').val(result.stampcard.iStampcardMaxStamps);
+           $('#RedemeCode').html(result.stampcard.iStampcardRedemeCode);
+           $('#sStampcardText').val(result.stampcard.sStampcardText);
+       });
+}
+
+function UpdateRedemeCode() {
+    
+    var sRedemeCode = $('#RedemeCode1').val() + $('#RedemeCode2').val() + $('#RedemeCode3').val() + $('#RedemeCode4').val(); 
+    $.ajax({
+        type: "GET",
+        url: "API/api.php",
+        dataType: "json",
+        data: {sFunction:"UpdateRedemeCode",sRedemeCode:sRedemeCode}
+       }).done(function(result) {
+           if(result.result === 'true') {
+                alert('Stempelkort kode er blevet opdateret');
+                $('#RedemeCode').html(sRedemeCode);
+                $('#RedemeCode1').val('');
+                $('#RedemeCode2').val('');
+                $('#RedemeCode3').val('');
+                $('#RedemeCode4').val('');
+           }
+       }); 
 }
 
 function SaveMessageWithImage() {

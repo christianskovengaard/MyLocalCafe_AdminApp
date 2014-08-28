@@ -37,18 +37,18 @@ if($oSecurityController->login_check() == true) { ?>
                     </div>
                     <div class='StampWrapper'>
                         <form class="form">
-                        <p>Antal stempler på stempelkortet:</p>
+                        <h2>Antal stempler på stempelkortet:</h2>
                         <input type='text' placeholder="Antal stempler" id="iMaxStamps" maxlength="2">
                         <input type='button' onclick="SaveStampcard();" value='Gem'>
+                        <h2>Stempelkort tekst</h2>
                         <input type="text" placeholder="Stempelkort tekst" id="sStampcardText" >
-                        <div id="sStampcardTextExample">Stempelkort tekst...</div>
                         <input type='button' onclick="UpdateStampcardText();" value='Opdater tekst'>
-                        <h3>Stempelkort kode: </h3><p id="RedemeCode"></p>
+                        <h2>Stempelkort kode</h2><h3 id="RedemeCode"></h3>
                         <div class='redemecodes'>
-                            <input type="text" class='redemecode' id="RedemeCode1" maxlength="1">
-                            <input type="text" class='redemecode' id="RedemeCode2" maxlength="1">
-                            <input type="text" class='redemecode' id="RedemeCode3" maxlength="1">
-                            <input type="text" class='redemecode' id="RedemeCode4" maxlength="1">
+                            <input type="number" class='redemecode' id="RedemeCode1" maxlength="1">
+                            <input type="number" class='redemecode' id="RedemeCode2" maxlength="1">
+                            <input type="number" class='redemecode' id="RedemeCode3" maxlength="1">
+                            <input type="number" class='redemecode' id="RedemeCode4" maxlength="1">
                         </div>
                         <input type='button' onclick="UpdateRedemeCode();" value='Sæt stempelkort kode'>
                         </form>
@@ -64,7 +64,7 @@ if($oSecurityController->login_check() == true) { ?>
         <script type="text/javascript">
         $(document).ready(function() {
             GetRestuarentInfo();                    
-
+            GetStampcard();
             //$('.redemecode').parent('div').css({"width":"12%","float":"left"});
             //$('.redemecode').parent('div:nth-of-type(2), div:nth-of-type(3), div:nth-of-type(4)').css({"margin-left":"1.2%"});
             //$('.redemecode').parent('div').first().css({"margin-left":"24%"});
