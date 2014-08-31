@@ -27,13 +27,25 @@
                    <input type="text" value="" name="password" placeholder="Kodeord">
                    <input type="submit" value="Log ind" class="button">
                </form>
+               <?php
+                if(isset($_GET['login'])){
+                    if($_GET['login'] == 'false'){
+                        echo '<p class="fail_login">Brugernavn eller kodeord er forkert</p>';               
+                    }
+                }
+               ?>
            </div>  
         </div>
         <script type="text/javascript" src="js/general.js"></script>
         <script src="js/jquery.js"></script>
         <script type="text/javascript" src="js/jquery.velocity.min.js"></script>
         <script type="text/javascript" src="js/velocity.ui.js"></script>     
-        <script type="text/javascript" src="js/idangerous.swiper-2.1.min.js"></script>        
+        <script type="text/javascript" src="js/idangerous.swiper-2.1.min.js"></script>
+        <script type="text/javascript">
+        if (screen.width >= 720) {
+            //window.location = "../mylocalmenu/index.php";
+        }
+        </script>
     </body>
 </html>
 
