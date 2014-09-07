@@ -30,11 +30,7 @@ if($oSecurityController->login_check() == true) { ?>
                 <h1>MyLocal<span>Café</span></h1><h1 id="cafename"></h1>
             </div>
             <div class="menu_home">
-                <h2>Stempelkort</h2>
-                <p>Sådan ser dit stemplkort ud:</p><br>                   
-                    <div class='StampEX' id='StampEX'>
-                        <h4></h4>
-                    </div>
+               <!-- <h2>Stempelkort</h2>-->
                     <div class='StampWrapper'>
                         <form class="form">
                         <h2>Antal stempler på stempelkortet:</h2>

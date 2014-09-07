@@ -22,9 +22,9 @@
                     <h1>Admin</h1>
                 </div>
             <div class="form" id="login">
-               <form method="POST" action="login.php">
+               <form class="login_form" method="POST" action="login.php">
                    <input type="text" value="" name="username" placeholder="Email">
-                   <input type="text" value="" name="password" placeholder="Kodeord">
+                   <input type="password" value="" name="password" placeholder="Kodeord">
                    <input type="submit" value="Log ind" class="button">
                </form>
                <?php
