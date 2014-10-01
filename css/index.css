@@ -6,6 +6,10 @@ body {
     -webkit-overflow-scrolling: touch;
     padding: 0px;
     margin: 0px;
+
+    background: #ddd url("../img/bak.png") 0 0 repeat;
+    background-size: 100%;
+    padding-bottom: 20px;
     
 }
 
@@ -19,7 +23,7 @@ body {
 
 
 .link{
-
+    
     font-size: 32px;
     background-color: white;
     text-decoration: none;    
@@ -31,16 +35,18 @@ body {
     border-radius:8px;
 
     font-family:'Raleway', sans-serif;
-    
-    width: 65%;
+   
+    width: 100%;
     display: block;
-    margin-left: 15px;
-    margin-right: 5px;
+    box-sizing: border-box;
     
+
 }
 
 .link_div{
-    margin-top: 25px;
+    margin-top: 10px;
+    margin: 10px auto 0 auto;
+    width: 90%;
 }
 
 .menu_home {
@@ -175,10 +181,8 @@ a,h1,h2,h3,h4,h5,h6,p,li{
 #home{ 
     
     padding: 0px;
-    height: 650px; 
     text-shadow: none;
-    background: #ddd url("../img/bak.png") 0 0 no-repeat;
-    background-size: 100%;
+    
     overflow-x: hidden;
 }
 
@@ -278,8 +282,9 @@ border:none;
 outline:none;}
 
 #home input[type=text] {
+    box-sizing: border-box;
     border: 0;
-    width: 89%;
+    width: 100%;
     font-size: 23px;
     padding-bottom: 7.5px;
     padding-top: 7.5px;
@@ -290,7 +295,23 @@ outline:none;}
     background-color: white;
 }
 
+#home input[type=password] {
+    box-sizing: border-box;
+    border: 0;
+    width: 100%;
+    font-size: 23px;
+    padding-bottom: 7.5px;
+    padding-top: 7.5px;
+    border: 1px solid #393939;
+    border-radius:8px;
+    padding: 0.5em 0.8em 0.5em 0.8em;
+    font-family:'Raleway', sans-serif;
+    background-color: white;
+}
+
+
 #home input {
+    box-sizing: border-box;
     border: 0;
     width: 100%;
     font-size: 23px;
